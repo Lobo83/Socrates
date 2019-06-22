@@ -1,4 +1,4 @@
-package com.socrates.Socrates;
+package com.socrates;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

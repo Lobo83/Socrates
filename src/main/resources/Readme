@@ -1,0 +1,1 @@
+He eliminado la clase SpringBootServletInitializer que se creaba por defecto. Creo que no es necesaria pero conviene recordarlo
