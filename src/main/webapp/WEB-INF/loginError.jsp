@@ -37,12 +37,28 @@
                 <li><a href="#">Profesores</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="/loginPage">Iniciar Sesión</a></li>
+                <li><a href="/login">Iniciar Sesión</a></li>
             </ul>
         </div>
     </div>
 </nav>
-<h1>Cuerpesito serrano</h1>
+<h1>Login</h1>
+<h1>ERROR GARRAFAL</h1>
+<form name='f' action="login" method='POST'>
+    <table>
+        <tr>
+            <td>User:</td>
+            <td><input type='text' name='username' value=''></td>
+        </tr>
+        <tr>
+            <td>Password:</td>
+            <td><input type='password' name='password'/></td>
+        </tr>
+        <tr>
+            <td><input name="submit" type="submit" value="submit"/></td>
+        </tr>
+    </table>
+</form>
 <jsp:include page="/WEB-INF/template/footer.jsp"/>
 </body>
 </html>

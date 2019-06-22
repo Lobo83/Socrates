@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
     <jsp:include page="/WEB-INF/template/header.jsp"/>
@@ -37,12 +38,14 @@
                 <li><a href="#">Profesores</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="/loginPage">Iniciar Sesión</a></li>
+                <li><a href="/login">Iniciar Sesión</a></li>
             </ul>
         </div>
     </div>
 </nav>
-<h1>Cuerpesito serrano</h1>
+<%--<c:out value="Saludos <%= session.getAttribute("username") %>"/>--%>
+<h1>CONSEGUIDO</h1>
+
 <jsp:include page="/WEB-INF/template/footer.jsp"/>
 </body>
 </html>
