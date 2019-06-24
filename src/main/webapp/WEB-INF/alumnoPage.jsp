@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
     <jsp:include page="/WEB-INF/template/header.jsp"/>
@@ -16,23 +17,9 @@
 <%-- include header --%>
 
 <jsp:include page="/WEB-INF/template/navbar.jsp"/>
-<h1>Login</h1>
-<h1>ERROR GARRAFAL</h1>
-<form name='f' action="login" method='POST'>
-    <table>
-        <tr>
-            <td>User:</td>
-            <td><input type='text' name='username' value=''></td>
-        </tr>
-        <tr>
-            <td>Password:</td>
-            <td><input type='password' name='password'/></td>
-        </tr>
-        <tr>
-            <td><input name="submit" type="submit" value="submit"/></td>
-        </tr>
-    </table>
-</form>
+<%--<c:out value="Saludos <%= session.getAttribute("username") %>"/>--%>
+<h1>CONSEGUIDO</h1>
+
 <jsp:include page="/WEB-INF/template/footer.jsp"/>
 </body>
 </html>

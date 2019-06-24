@@ -15,4 +15,5 @@ public class PersonaVO {
     private String dni;
     private String telefono;
     private String email;
+    private UserVO userVO;
 }

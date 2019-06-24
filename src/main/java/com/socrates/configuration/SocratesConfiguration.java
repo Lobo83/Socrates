@@ -28,7 +28,9 @@ public class SocratesConfiguration implements WebMvcConfigurer {
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/loginPage");
-        registry.addViewController("/userPage");
+        registry.addViewController("/createUserPage");
+
+
 
     }
 

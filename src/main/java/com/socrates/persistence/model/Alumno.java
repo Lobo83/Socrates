@@ -25,7 +25,6 @@ public class Alumno extends Persona {
     List<Clase> clases;
     @OneToOne()
     private User user;
-    @OneToMany
-    private List<Authority> authorities;
+   
 
 }

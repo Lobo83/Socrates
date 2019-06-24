@@ -30,20 +30,22 @@ public class MainSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.formLogin().loginPage("/loginPage").loginProcessingUrl("/login").
-            defaultSuccessUrl("/userPage", true).
+            defaultSuccessUrl("/user/userPage", true).
             failureUrl("/loginError").usernameParameter("username").passwordParameter("password").
             and().
             authorizeRequests().
             antMatchers(" / static/**").
             permitAll().
-            antMatchers("/userPage").authenticated().and().logout().permitAll();
+            antMatchers("/user/**").authenticated().and().logout().permitAll();
         http.csrf().disable();
     }
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
 
-        auth.jdbcAuthentication().dataSource(dataSource).passwordEncoder(passwordEncoder()).usersByUsernameQuery("select username,password, enabled from users where username=?").authoritiesByUsernameQuery("select username, role from user_roles where username=?");
+        auth.jdbcAuthentication().dataSource(dataSource).passwordEncoder(passwordEncoder()).
+            usersByUsernameQuery("select username,password, enabled from user where username=?").
+            authoritiesByUsernameQuery("select username, role from user_roles where username=?");
         //auth.inMemoryAuthentication().withUser("admin").password(passwordEncoder().encode("admin")).authorities("ROLE_USER");
     }
 
