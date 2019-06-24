@@ -14,16 +14,6 @@
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
-
-                <%--<li class="dropdown" >--%>
-                <%--<a class="dropdown-toggle" data-toggle="dropdown" href="#">Materias--%>
-                <%--<span class="caret"></span></a>--%>
-                <%--<ul class="dropdown-menu">--%>
-                <%--<li><a href="#">Page 1-1</a></li>--%>
-                <%--<li><a href="#">Page 1-2</a></li>--%>
-                <%--<li><a href="#">Page 1-3</a></li>--%>
-                <%--</ul>--%>
-                <%--</li>--%>
                 <li><a href="#">Materias</a></li>
                 <li><a href="#">Clases</a></li>
                 <li><a href="#">Profesores</a></li>
@@ -33,7 +23,14 @@
             </ul>
             <sec:authorize access="hasRole('ADMIN')">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="/createUserPage">Crear Usuario</a></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Admin</a>
+                        <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/createUserPage">Crear Usuario</a></li>
+                            <li><a href="/user/findAll">Listar Usuarios</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </sec:authorize>
         </div>

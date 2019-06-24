@@ -15,47 +15,103 @@
 </style>
 <body>
 <jsp:include page="/WEB-INF/template/navbar.jsp"/>
-<h1>CONSEGUIDO</h1>
 
 <form id="createUserForm" name="user" action="/user/create" method="post">
 
     <div class="container">
         <div class="row">
-            <div class="col-sm-2">
-                <c:out value="Nombre Usuario: "/>
+            <div class="col-sm-2" style="width: 12%">
+                <c:out value="Nombre:"/>
             </div>
             <div class="col-sm-2">
-                <input type="text" name="username"/>
+                <input type="text" name="nombre"/>
             </div>
 
         </div>
         <div class="row">
-            <div class="col">
-                <c:out value="Contraseña: "/> <input type="password" name="password"/>
+            <div class="col-sm-2" style="width: 12%">
+                <c:out value="Primer Apellido:"/>
+            </div>
+            <div class="col-sm-2">
+                <input type="text" name="apellido1"/>
             </div>
 
         </div>
         <div class="row">
-            <div class="col">
-                <c:out value="Activo: "/><input type="checkbox" name="active" checked/>
+            <div class="col-sm-2" style="width: 12%">
+                <c:out value="Segundo Appelido:"/>
+            </div>
+            <div class="col-sm-2">
+                <input type="text" name="apellido2"/>
             </div>
 
         </div>
         <div class="row">
-            <div class="col-4">
+            <div class="col-sm-2" style="width: 12%">
+                <c:out value="E-mail:"/>
+            </div>
+            <div class="col-sm-2">
+                <input type="text" name="email" maxlength="30"/>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-sm-2" style="width: 12%">
+                <c:out value="DNI:"/>
+            </div>
+            <div class="col-sm-2">
+                <input type="text" name="dni"/>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-sm-2" style="width: 12%">
+                <c:out value="Telefono:"/>
+            </div>
+            <div class="col-sm-2">
+                <input type="text" name="telefono"/>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-sm-2" style="width: 12%">
+                <c:out value="Usuario:"/>
+            </div>
+            <div class="col-sm-2">
+                <input type="text" name="userDTO.username"/>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-sm-2" style="width: 12%">
+                <c:out value="Contraseña: "/>
+            </div>
+            <div class="col-sm-2">
+                <input type="password" name="userDTO.password"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2" style="width: 12%">
+                <c:out value="Activo: "/><input type="checkbox" name="userDTO.active" checked/>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-sm-2">
                 <c:out value="Rol:"/><br/>
             </div>
-            <div class="col">
+        </div>
+        <div class="row">
+            <div class="col-2" style="padding-left: 5%">
                 <fieldset>
                     <c:forEach items="${['Admin','Alumno','Profesor']}" var="role">
                         <c:out value="${role}: "/><input type="radio" value="${role}"
-                                                         name="roles"/><br/>
+                                                         name="userDTO.roles"/><br/>
                     </c:forEach>
                 </fieldset>
             </div>
 
         </div>
-
         <div class="row">
             <div class="col-4">
                 <input type="submit" value="Crear"/>
