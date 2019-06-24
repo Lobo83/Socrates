@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -35,7 +34,7 @@ public class UserController {
      * @return the string
      */
     @GetMapping(value = "/userPage")
-    public String determinarUserPage(Authentication authentication, Model model) {
+    public String determinarUserPage(Authentication authentication) {
         String pagina = "index";
         //verificación de que la sesion es valida
         if (null != authentication && authentication.getAuthorities().size() > 0) {
@@ -43,7 +42,6 @@ public class UserController {
             GrantedAuthority role = roles.get(0);
             switch (role.getAuthority()) {
                 case "ROLE_ADMIN":
-                    model.addAttribute("user", new UserDTO());
                     pagina = "adminPage";
                     break;
                 case "ROLE_PROFESOR":

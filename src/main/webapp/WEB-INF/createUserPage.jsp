@@ -1,6 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
     <jsp:include page="/WEB-INF/template/header.jsp"/>
@@ -16,16 +15,54 @@
 </style>
 <body>
 <jsp:include page="/WEB-INF/template/navbar.jsp"/>
-<%--<c:out value="Saludos <%= session.getAttribute("username") %>"/>--%>
 <h1>CONSEGUIDO</h1>
-<form:form id="createUserForm" modelAttribute="user" action="/user/createUser" method="post">
-    <form:input path="username"/>
-    <form:password path="password"/>
-    <form:checkboxes items="Activo" path="active"/>
-    <form:radiobuttons path="roles" items="${['Admin','Alumno','Profesor']}"/>
-    <input type="submit" value="Crear"/>
-    <form:form/>
-    <jsp:include page="/WEB-INF/template/footer.jsp"/>
-</form:form>
+
+<form id="createUserForm" name="user" action="/user/create" method="post">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-2">
+                <c:out value="Nombre Usuario: "/>
+            </div>
+            <div class="col-sm-2">
+                <input type="text" name="username"/>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col">
+                <c:out value="Contraseña: "/> <input type="password" name="password"/>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col">
+                <c:out value="Activo: "/><input type="checkbox" name="active" checked/>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <c:out value="Rol:"/><br/>
+            </div>
+            <div class="col">
+                <c:forEach items="${['Admin','Alumno','Profesor']}" var="role">
+                    <c:out value="${role}: "/><input type="radio" value="${role}"
+                                                     name="roles"/><br/>
+                </c:forEach>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-4">
+                <input type="submit" value="Crear"/>
+            </div>
+
+        </div>
+    </div>
+</form>
+
+<jsp:include page="/WEB-INF/template/footer.jsp"/>
 </body>
 </html>
