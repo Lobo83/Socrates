@@ -46,10 +46,12 @@
                 <c:out value="Rol:"/><br/>
             </div>
             <div class="col">
-                <c:forEach items="${['Admin','Alumno','Profesor']}" var="role">
-                    <c:out value="${role}: "/><input type="radio" value="${role}"
-                                                     name="roles"/><br/>
-                </c:forEach>
+                <fieldset>
+                    <c:forEach items="${['Admin','Alumno','Profesor']}" var="role">
+                        <c:out value="${role}: "/><input type="radio" value="${role}"
+                                                         name="roles"/><br/>
+                    </c:forEach>
+                </fieldset>
             </div>
 
         </div>
