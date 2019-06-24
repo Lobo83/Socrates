@@ -60,7 +60,12 @@ public class UserController {
 
     @PostMapping(value = "/create")
     public ModelAndView createUser(@ModelAttribute("user") UserDTO userDTO) {
-
+        //TODO Esto realmente debería ir por configuracion pero bueno. poco a poco
+        List<String> roles = userDTO.getRoles();
+        for (int i = 0; i < roles.size(); i++) {
+            String rol = roles.get(i);
+            roles.set(i, "ROLE_" + rol.toUpperCase());
+        }
         userService.createUser(userBusinessMapper.directMapping(userDTO));
         ModelAndView modelAndView = new ModelAndView("createUserPage");
         modelAndView.addObject("user", userDTO);
