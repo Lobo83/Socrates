@@ -11,20 +11,16 @@ import java.util.List;
  * The type AlumnoDTO.
  */
 @Entity
-@Table(name = "ALUMNO")
+@DiscriminatorValue(value = "ALUMNO")
 @ToString
 @Getter
 @Setter
 public class Alumno extends Persona {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID_ALUMNO")
-    private Long id;
+
     @JoinTable(name = "REL_ALUMNO_CLASE", joinColumns = @JoinColumn(name = "ID_ALUMNO", nullable = false), inverseJoinColumns = @JoinColumn(name = "ID_CLASE", nullable = false))
     @ManyToMany(cascade = CascadeType.ALL)
     List<Clase> clases;
-    @OneToOne()
-    private User user;
-   
+
+
 
 }

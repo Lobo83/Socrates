@@ -13,6 +13,5 @@ import java.util.List;
 @Getter
 @Setter
 public class ProfesorVO extends PersonaVO {
-    private Long id;
     List<ClaseVO> clases;
 }

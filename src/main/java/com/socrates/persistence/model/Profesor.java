@@ -4,7 +4,10 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import java.util.List;
 
 /**
@@ -14,12 +17,9 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-@Table(name = "PROFESOR")
+@DiscriminatorValue(value = "PROFESOR")
 public class Profesor extends Persona {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID_PROFESOR")
-    private Long id;
+
     @OneToMany(mappedBy = "profesor", cascade = CascadeType.ALL, orphanRemoval = true)
     List<Clase> clases;
 }

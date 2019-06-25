@@ -13,7 +13,6 @@ import java.util.List;
 @Getter
 @Setter
 public class AlumnoDTO extends PersonaDTO {
-    private Long id;
-    List<ClaseDTO> clases;
+    private List<ClaseDTO> clases;
 
 }

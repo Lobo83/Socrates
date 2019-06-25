@@ -11,6 +11,7 @@ import lombok.ToString;
 @Setter
 @ToString
 public class PersonaDTO {
+    private Long idPersona;
     private String nombre;
     private String apellido1;
     private String apellido2;

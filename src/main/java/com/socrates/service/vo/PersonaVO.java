@@ -9,6 +9,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class PersonaVO {
+    private Long idPersona;
     private String nombre;
     private String apellido1;
     private String apellido2;
