@@ -4,6 +4,7 @@ import com.socrates.persistence.model.User;
 import com.socrates.persistence.model.UserRoles;
 import com.socrates.persistence.repository.UserRepository;
 import com.socrates.persistence.repository.UserRolesRepository;
+import com.socrates.service.mapper.UserMapper;
 import com.socrates.service.service.UserService;
 import com.socrates.service.vo.UserVO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,10 +26,13 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserRolesRepository userRolesRepository;
 
+    @Autowired
+    private UserMapper userMapper;
+
 
     @Override
     @Transactional
-    public User createUser(UserVO userVO) {
+    public User crearUsuario(UserVO userVO) {
         User user = new User();
         user.setEnabled(userVO.getActive());
         user.setUsername(userVO.getUsername());
@@ -44,5 +48,15 @@ public class UserServiceImpl implements UserService {
         userRolesRepository.saveAll(roles);
 
         return user;
+    }
+
+    @Override
+    public List<UserVO> obtenerUsuarios() {
+        return userMapper.inverseMapping((List<User>) userRepository.findAll());
+    }
+
+    @Override
+    public UserVO findByUsername(String username) {
+        return userMapper.inverseMapping(userRepository.findById(username).get());
     }
 }

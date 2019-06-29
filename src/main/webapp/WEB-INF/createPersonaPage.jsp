@@ -16,7 +16,7 @@
 <body>
 <jsp:include page="/WEB-INF/template/navbar.jsp"/>
 
-<form id="createUserForm" name="user" action="/user/create" method="post">
+<form id="createUserForm" name="persona" action="/persona/create" method="post">
 
     <div class="container">
         <div class="row">
@@ -77,41 +77,31 @@
             <div class="col-sm-2" style="width: 12%">
                 <c:out value="Usuario:"/>
             </div>
-            <div class="col-sm-2">
-                <input type="text" name="userDTO.username"/>
-            </div>
+            <select id="userDropdown" name="username">
+                <c:forEach var="usuario" items="${listaUsuarios}">
+                    <option value="<c:out value='${usuario}' />"
+                            <c:if test="${param.selectValue == usuario})"> selected </c:if>  >
+                        <c:out value="${usuario}" />
+                    </option>
+                </c:forEach>
+            </select>
 
         </div>
         <div class="row">
             <div class="col-sm-2" style="width: 12%">
-                <c:out value="Contraseña: "/>
+                <c:out value="TipoPersona:"/>
             </div>
-            <div class="col-sm-2">
-                <input type="password" name="userDTO.password"/>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-2" style="width: 12%">
-                <c:out value="Activo: "/><input type="checkbox" name="userDTO.active" checked/>
-            </div>
+            <fieldset>
+                <c:forEach items="${['Alumno','Profesor']}" var="tipoPersona">
+                    <c:out value="${tipoPersona}: "/><input type="radio" value="${tipoPersona}"
+                                                     name="tipoPersona"/><br/>
+                </c:forEach>
+            </fieldset>
 
         </div>
-        <div class="row">
-            <div class="col-sm-2">
-                <c:out value="Rol:"/><br/>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-2" style="padding-left: 5%">
-                <fieldset>
-                    <c:forEach items="${['Admin','Alumno','Profesor']}" var="role">
-                        <c:out value="${role}: "/><input type="radio" value="${role}"
-                                                         name="userDTO.roles"/><br/>
-                    </c:forEach>
-                </fieldset>
-            </div>
 
-        </div>
+
+
         <div class="row">
             <div class="col-4">
                 <input type="submit" value="Crear"/>

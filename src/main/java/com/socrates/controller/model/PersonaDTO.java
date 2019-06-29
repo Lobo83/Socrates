@@ -1,5 +1,6 @@
 package com.socrates.controller.model;
 
+import com.socrates.service.TipoPersonaEnum;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -18,5 +19,6 @@ public class PersonaDTO {
     private String dni;
     private String telefono;
     private String email;
-    private UserDTO userDTO;
+    private TipoPersonaEnum tipoPersona;
+    private String username;
 }

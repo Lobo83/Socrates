@@ -1,5 +1,6 @@
 package com.socrates.service.vo;
 
+import com.socrates.service.TipoPersonaEnum;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -16,5 +17,6 @@ public class PersonaVO {
     private String dni;
     private String telefono;
     private String email;
+    private TipoPersonaEnum tipoPersona;
     private UserVO userVO;
 }

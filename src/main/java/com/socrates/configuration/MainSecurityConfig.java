@@ -34,7 +34,7 @@ public class MainSecurityConfig extends WebSecurityConfigurerAdapter {
             failureUrl("/loginError").usernameParameter("username").passwordParameter("password").
             and().
             authorizeRequests().
-            antMatchers(" / static/**").
+            antMatchers(" /static/**").
             permitAll().
             antMatchers("/user/**").authenticated().and().logout().permitAll();
         http.csrf().disable();

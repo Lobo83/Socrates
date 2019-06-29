@@ -8,7 +8,7 @@ spring:
             dialect: org.hibernate.dialect.MySQL5Dialect
     datasource:
         platform: mysql
-        url: ${DATABASE_URL:jdbc:mysql://localhost:3306/Socrates?serverTimezone=UTC}
+        url: ${JDBC_DATABASE_URL:jdbc:mysql://localhost:3306/Socrates?serverTimezone=UTC}
         username: ${DATABASE_LOGIN:nextplus}
         password: ${DATABASE_PASSWORD:nextplus}
         driverClassName: com.mysql.cj.jdbc.Driver

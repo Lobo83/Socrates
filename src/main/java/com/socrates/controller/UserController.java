@@ -61,15 +61,15 @@ public class UserController {
     }
 
     @PostMapping(value = "/create")
-    public ModelAndView createUser(@ModelAttribute("user") PersonaDTO userDTO) {
+    public ModelAndView createUser(@ModelAttribute("user") UserDTO userDTO) {
         //TODO Esto realmente debería ir por configuracion pero bueno. poco a poco
-        List<String> roles = userDTO.getUserDTO().getRoles();
+        List<String> roles = userDTO.getRoles();
         for (int i = 0; i < roles.size(); i++) {
             String rol = roles.get(i);
             roles.set(i, "ROLE_" + rol.toUpperCase());
         }
-        userService.createUser(userBusinessMapper.directMapping(userDTO.getUserDTO()));
-        ModelAndView modelAndView = new ModelAndView("createUserPage");
+        userService.crearUsuario(userBusinessMapper.directMapping(userDTO));
+        ModelAndView modelAndView = new ModelAndView("view/createUserPage");
         modelAndView.addObject("user", userDTO);
         return modelAndView;
     }
@@ -84,7 +84,6 @@ public class UserController {
         persona1.setNombre("Pepe Lui");
         UserDTO user = new UserDTO();
         user.setUsername("monguer");
-        persona1.setUserDTO(user);
 
         PersonaDTO persona2 = new PersonaDTO();
         persona2.setApellido1("Buga");
@@ -92,7 +91,6 @@ public class UserController {
         persona2.setNombre("Lobo");
         UserDTO user2 = new UserDTO();
         user2.setUsername("admin");
-        persona2.setUserDTO(user2);
         personas.add(persona1);
         personas.add(persona2);
         personas.add(persona2);
