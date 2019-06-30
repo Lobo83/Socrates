@@ -8,7 +8,7 @@ import org.mapstruct.AfterMapping;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingTarget;
 
-@Mapper(componentModel = "spring")
+@Mapper(componentModel = "spring", uses = UserMapper.class)
 public interface ProfesorMapper extends AbstractMapper<PersonaVO, Profesor> {
     @AfterMapping
     default void mapeaTipoProfesor(@MappingTarget PersonaVO personaVO){
