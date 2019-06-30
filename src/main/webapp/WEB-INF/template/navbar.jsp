@@ -30,6 +30,7 @@
                             <li><a href="/view/createUserPage">Crear Usuario</a></li>
                             <li><a href="/user/findAll">Listar Usuarios</a></li>
                             <li><a href="/persona/createPersonaPage">Crear Persona</a></li>
+                            <li><a href="/persona/findAll">Listar Personas</a></li>
 
                         </ul>
                     </li>

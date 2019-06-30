@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 @Service
 public class PersonaServiceImpl implements PersonaService {
@@ -44,6 +45,15 @@ public class PersonaServiceImpl implements PersonaService {
                 personaVO.setIdPersona(profesor.getIdPersona());
                 break;
         }
+    }
+
+    @Override
+    public List<PersonaVO> obtenerPersonas() {
+        List<Alumno> alumnos= (List<Alumno>) alumnoRepository.findAll();
+        List<Profesor> profesores= (List<Profesor>) profesorRepository.findAll();
+        List<PersonaVO> personas = alumnoMapper.inverseMapping(alumnos);
+        personas.addAll( profesorMapper.inverseMapping(profesores));
+        return personas;
     }
 }
 

@@ -1,8 +1,9 @@
 package com.socrates.controller;
 
+import com.socrates.controller.mapper.PersonaBusinessMapper;
 import com.socrates.controller.mapper.UserBusinessMapper;
-import com.socrates.controller.model.PersonaDTO;
 import com.socrates.controller.model.UserDTO;
+import com.socrates.service.service.PersonaService;
 import com.socrates.service.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -14,7 +15,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -28,6 +28,11 @@ public class UserController {
     private UserService userService;
     @Autowired
     private UserBusinessMapper userBusinessMapper;
+
+    @Autowired
+    private PersonaService personaService;
+    @Autowired
+    private PersonaBusinessMapper personaBusinessMapper;
 
     /**
      * Determinar user page string.
@@ -60,6 +65,12 @@ public class UserController {
         return pagina;
     }
 
+    /**
+     * Create user model and view.
+     *
+     * @param userDTO the user dto
+     * @return the model and view
+     */
     @PostMapping(value = "/create")
     public ModelAndView createUser(@ModelAttribute("user") UserDTO userDTO) {
         //TODO Esto realmente debería ir por configuracion pero bueno. poco a poco
@@ -74,52 +85,17 @@ public class UserController {
         return modelAndView;
     }
 
+    /**
+     * Listar usuarios model and view.
+     *
+     * @return the model and view
+     */
     @GetMapping(value = "/findAll")
     public ModelAndView listarUsuarios() {
         ModelAndView modelAndView = new ModelAndView("listarUsuariosPage");
-        List<PersonaDTO> personas = new ArrayList<>();
-        PersonaDTO persona1 = new PersonaDTO();
-        persona1.setApellido1("Anton");
-        persona1.setApellido2("Bueso");
-        persona1.setNombre("Pepe Lui");
-        UserDTO user = new UserDTO();
-        user.setUsername("monguer");
+        List<UserDTO> userDTOS = userBusinessMapper.inverseMapping(userService.obtenerUsuarios());
 
-        PersonaDTO persona2 = new PersonaDTO();
-        persona2.setApellido1("Buga");
-        persona2.setApellido2("Huga");
-        persona2.setNombre("Lobo");
-        UserDTO user2 = new UserDTO();
-        user2.setUsername("admin");
-        personas.add(persona1);
-        personas.add(persona2);
-        personas.add(persona2);
-        personas.add(persona2);
-        personas.add(persona2);
-        personas.add(persona2);
-        personas.add(persona2);
-        personas.add(persona2);
-        personas.add(persona2);
-        personas.add(persona2);
-        personas.add(persona2);
-        personas.add(persona2);
-        personas.add(persona2);
-        personas.add(persona2);
-        personas.add(persona2);
-        personas.add(persona2);
-        personas.add(persona2);
-        personas.add(persona2);
-        personas.add(persona2);
-        personas.add(persona2);
-        personas.add(persona2);
-        personas.add(persona2);
-        personas.add(persona2);
-        personas.add(persona2);
-        personas.add(persona2);
-
-
-
-        modelAndView.addObject("usersList", personas);
+        modelAndView.addObject("usersList", userDTOS);
         return modelAndView;
     }
 

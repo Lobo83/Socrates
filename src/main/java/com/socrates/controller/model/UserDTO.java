@@ -15,6 +15,6 @@ import java.util.List;
 public class UserDTO {
     private String username;
     private String password;
-    private Boolean active;
+    private Boolean enabled;
     private List<String> roles;
 }

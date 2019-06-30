@@ -34,10 +34,10 @@ public class UserServiceImpl implements UserService {
     @Transactional
     public User crearUsuario(UserVO userVO) {
         User user = new User();
-        user.setEnabled(userVO.getActive());
+        user.setEnabled(userVO.getEnabled());
         user.setUsername(userVO.getUsername());
         user.setPassword(userVO.getPassword());
-        userRepository.save(user);
+
         List<UserRoles> roles = new ArrayList<>();
         for (String role : userVO.getRoles()) {
             UserRoles userRoles = new UserRoles();
@@ -45,8 +45,8 @@ public class UserServiceImpl implements UserService {
             userRoles.setRole(role);
             roles.add(userRoles);
         }
-        userRolesRepository.saveAll(roles);
-
+        //userRolesRepository.saveAll(roles);
+        userRepository.save(user);
         return user;
     }
 

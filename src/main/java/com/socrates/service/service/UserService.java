@@ -11,7 +11,7 @@ import java.util.List;
 public interface UserService {
 
     /**
-     * Crea usuario en el sistema basandose en la entrada userVO.
+     * Crea usuario en el sistema basandose en la entrada user.
      *
      * @param userVO the user vo
      * @return the user

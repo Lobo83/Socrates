@@ -10,6 +10,7 @@ import com.socrates.service.vo.PersonaVO;
 import com.socrates.service.vo.UserVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -40,7 +41,7 @@ public class PersonaController {
         //TODO ESTO NO MOLA MUCHO, NO ES LOGICA DE CONTROLLER
         UserVO userVO=userService.findByUsername(personaDTO.getUsername());
         PersonaVO personaVO = personaBusinessMapper.directMapping(personaDTO);
-        personaVO.setUserVO(userVO);
+        personaVO.setUser(userVO);
         personaService.crearPersona(personaVO);
         ModelAndView modelAndView = new ModelAndView("createPersonaPage");
         return modelAndView;
@@ -50,6 +51,18 @@ public class PersonaController {
         List<UserDTO> usuarios = userBusinessMapper.inverseMapping(userService.obtenerUsuarios());
         ModelAndView modelAndView = new ModelAndView("createPersonaPage");
         modelAndView.addObject("listaUsuarios",usuarios.stream().map(UserDTO::getUsername).collect(Collectors.toList()));
+        return modelAndView;
+    }
+
+    @GetMapping(value = "/findAll")
+    public ModelAndView listarUsuarios() {
+        ModelAndView modelAndView = new ModelAndView("listarPersonasPage");
+        List<PersonaVO> personaVOS = personaService.obtenerPersonas();
+        List<PersonaDTO> personas = personaBusinessMapper.inverseMapping(personaVOS);
+
+
+
+        modelAndView.addObject("usersList", personas);
         return modelAndView;
     }
 }

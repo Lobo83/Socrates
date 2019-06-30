@@ -21,36 +21,42 @@
     <table class="table ">
         <thead>
         <tr>
-            <th scope="col">Nombre Usuario</th>
-            <th scope="col">Contraseña</th>
-            <th scope="col">Role</th>
-            <th scope="col">Activo</th>
-
+            <th scope="col">Nombre</th>
+            <th scope="col">Primer Apellido</th>
+            <th scope="col">Segundo Apellido</th>
+            <th scope="col">Email</th>
+            <th scope="col">Dni</th>
+            <th scope="col">Telefono</th>
+            <th scope="col">Tipo</th>
+            <th scope="col">Usuario</th>
         </tr>
         </thead>
         <tbody>
         <c:forEach var="usuario" items="${usersList}">
             <tr>
                 <td scope="row">
+                    <c:out value="${usuario.nombre}"/>
+                </td>
+                <td>
+                    <c:out value="${usuario.apellido1}"/>
+                </td>
+                <td>
+                    <c:out value="${usuario.apellido2}"/>
+                </td>
+                <td>
+                    <c:out value="${usuario.email}"/>
+                </td>
+                <td>
+                    <c:out value="${usuario.dni}"/>
+                </td>
+                <td>
+                    <c:out value="${usuario.telefono}"/>
+                </td>
+                <td>
+                    <c:out value="${usuario.tipoPersona}"/>
+                </td>
+                <td>
                     <c:out value="${usuario.username}"/>
-                </td>
-                <td>
-                    <c:out value="${usuario.password}"/>
-                </td>
-                <td>
-                    <c:out value=""/>
-                </td>
-                <td>
-                    <c:choose>
-                        <c:when test="${usuario.enabled}">
-                            <c:out value="Activo"/>
-                        </c:when>
-                        <c:otherwise>
-                            <c:out value="Inactivo"/>
-                        </c:otherwise>
-
-                    </c:choose>
-
                 </td>
 
 

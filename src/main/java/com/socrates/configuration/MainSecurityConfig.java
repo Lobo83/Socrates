@@ -29,7 +29,7 @@ public class MainSecurityConfig extends WebSecurityConfigurerAdapter {
      */
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.formLogin().loginPage("/loginPage").loginProcessingUrl("/login").
+        http.formLogin().loginPage("/view/loginPage").loginProcessingUrl("/login").
             defaultSuccessUrl("/user/userPage", true).
             failureUrl("/loginError").usernameParameter("username").passwordParameter("password").
             and().

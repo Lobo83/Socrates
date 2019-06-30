@@ -18,5 +18,5 @@ public class PersonaVO {
     private String telefono;
     private String email;
     private TipoPersonaEnum tipoPersona;
-    private UserVO userVO;
+    private UserVO user;
 }

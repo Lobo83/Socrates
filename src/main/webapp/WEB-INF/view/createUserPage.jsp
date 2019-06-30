@@ -40,7 +40,7 @@
         </div>
         <div class="row">
             <div class="col-sm-2" style="width: 12%">
-                <c:out value="Activo: "/><input type="checkbox" name="active" checked/>
+                <c:out value="Activo: "/><input type="checkbox" name="enabled" checked/>
             </div>
 
         </div>
