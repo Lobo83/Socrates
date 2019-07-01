@@ -24,14 +24,13 @@
             <sec:authorize access="hasRole('ADMIN')">
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Admin</a>
-                        <span class="caret"></span></a>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Admin
+                            <span class="caret"/></a>
                         <ul class="dropdown-menu">
                             <li><a href="/view/createUserPage">Crear Usuario</a></li>
                             <li><a href="/user/findAll">Listar Usuarios</a></li>
                             <li><a href="/persona/createPersonaPage">Crear Persona</a></li>
                             <li><a href="/persona/findAll">Listar Personas</a></li>
-
                         </ul>
                     </li>
                 </ul>
