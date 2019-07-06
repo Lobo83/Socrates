@@ -1,7 +1,6 @@
 package com.socrates.configuration;
 
 import com.socrates.configuration.util.StringToEnumConverterFactory;
-import com.socrates.controller.formatter.ClaseFormatter;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
@@ -37,7 +36,6 @@ public class SocratesConfiguration implements WebMvcConfigurer {
     @Override
     public void addFormatters(FormatterRegistry registry) {
         registry.addConverterFactory(new StringToEnumConverterFactory());
-        registry.addFormatter(new ClaseFormatter());
     }
 
 }
