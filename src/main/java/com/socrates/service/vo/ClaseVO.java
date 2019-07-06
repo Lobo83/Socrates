@@ -16,7 +16,7 @@ public class ClaseVO {
     private Long id;
     private String nombre;
     private String descripcion;
-    private AulaVO aula;
+    private List<SesionVO> sesiones;
     private MateriaVO materia;
     private ProfesorVO profesor;
     private List<AlumnoVO> alumnos;

@@ -16,9 +16,10 @@ public class ClaseDTO {
     private Long id;
     private String nombre;
     private String descripcion;
-    private AulaDTO aula;
+    private List<SesionDTO> sesiones;
     private MateriaDTO materia;
     private ProfesorDTO profesor;
+    private Long idProfesor;
     private List<AlumnoDTO> alumnos;
 
 }

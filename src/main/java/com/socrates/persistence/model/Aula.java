@@ -27,8 +27,10 @@ public class Aula {
     @Column(name = "CAPACIDAD", precision = 3)
     private Integer capacidad;
 
-    @OneToMany(mappedBy = "aula", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Clase> clases;
+    //    @OneToMany(mappedBy = "aula", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "aula")
+    private List<Sesion> sesiones;
+
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "REL_AULA_MATERIAL", joinColumns = @JoinColumn(name = "ID_AULA", nullable = false), inverseJoinColumns = @JoinColumn(name = "ID_MATERIAL", nullable = false))
     private List<Material> materiales;

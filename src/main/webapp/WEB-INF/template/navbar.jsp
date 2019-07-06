@@ -31,6 +31,11 @@
                             <li><a href="/user/findAll">Listar Usuarios</a></li>
                             <li><a href="/persona/createPersonaPage">Crear Persona</a></li>
                             <li><a href="/persona/findAll">Listar Personas</a></li>
+                            <li><a href="/aula/cargar_formulario_vacio">Crear Aula</a></li>
+                            <li><a href="/aula/findAll">Listar Aulas</a></li>
+                            <li><a href="/clase/cargar_formulario_vacio">Crear Clase</a></li>
+                            <li><a href="/clase/findAll">Listar Clases</a></li>
+
                         </ul>
                     </li>
                 </ul>

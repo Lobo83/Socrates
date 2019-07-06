@@ -17,7 +17,7 @@ public class AulaDTO {
     private String nombre;
     private String descripcion;
     private Integer capacidad;
-    private List<ClaseDTO> clases;
+    private List<SesionDTO> sesiones;
     private List<MaterialDTO> materiales;
 
 }

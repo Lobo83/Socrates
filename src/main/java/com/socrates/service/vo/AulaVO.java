@@ -17,7 +17,7 @@ public class AulaVO {
     private String nombre;
     private String descripcion;
     private Integer capacidad;
-    private List<ClaseVO> clases;
+    private List<SesionVO> sesiones;
     private List<MaterialVO> materiales;
 
 }

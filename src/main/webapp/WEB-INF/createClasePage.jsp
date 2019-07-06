@@ -16,58 +16,53 @@
 <body>
 <jsp:include page="/WEB-INF/template/navbar.jsp"/>
 
-<form id="createUserForm" name="user" action="/user/create" method="post">
-
+<form id="createClaseForm" name="clase" action="/clase/crear" method="post">
+    <input type="hidden" name="id" value="${clase.id}"/>
     <div class="container">
-
         <div class="row">
+
             <div class="col-sm-2" style="width: 12%">
-                <c:out value="Usuario:"/>
+                <c:out value="Nombre:"/>
             </div>
             <div class="col-sm-2">
-                <input type="text" name="username"/>
-            </div>
-
-        </div>
-        <div class="row">
-            <div class="col-sm-2" style="width: 12%">
-                <c:out value="Contraseña: "/>
-            </div>
-            <div class="col-sm-2">
-                <input type="password" name="password"/>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-2" style="width: 12%">
-                <c:out value="Activo: "/><input type="checkbox" name="enabled" checked/>
+                <input type="text" name="nombre" value="${clase.nombre}"/>
             </div>
 
         </div>
         <div class="row">
-            <div class="col-sm-2">
-                <c:out value="Rol:"/><br/>
+
+            <div class="col-sm-2" style="width: 12%">
+                <c:out value="Descripcion:"/>
             </div>
+            <div class="col-sm-2">
+                <input type="text" name="descripcion" value="${clase.descripcion}"/>
+            </div>
+
         </div>
         <div class="row">
-            <div class="col-2" style="padding-left: 5%">
-                <fieldset>
-                    <c:forEach items="${['Admin','Alumno','Profesor']}" var="role">
-                        <c:out value="${role}: "/><input type="radio" value="${role}"
-                                                         name="roles"/><br/>
+
+            <div class="col-sm-2" style="width: 12%">
+                <c:out value="Profesor:"/>
+            </div>
+            <div class="col-sm-2">
+                <select name="idProfesor">
+                    <c:forEach var="profe" items="${profesores}">
+                        <option value="${profe.idPersona}" ${profe.idPersona == clase.profesor.idPersona ? 'selected="selected"' : ''}>${profe.nombre} ${profe.apellido1} ${profe.apellido2}</option>
                     </c:forEach>
-                </fieldset>
+                </select>
             </div>
 
         </div>
         <div class="row">
             <div class="col-4">
-                <input type="submit" value="Crear"/>
+                <input type="submit" value="Salvar"/>
             </div>
 
         </div>
     </div>
+    </div>
 </form>
-
 <jsp:include page="/WEB-INF/template/footer.jsp"/>
 </body>
 </html>
+

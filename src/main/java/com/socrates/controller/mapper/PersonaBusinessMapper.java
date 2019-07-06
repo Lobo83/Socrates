@@ -12,4 +12,6 @@ public interface PersonaBusinessMapper extends AbstractMapper<PersonaDTO, Person
     @Override
     @Mapping(target = "username",source ="user.username" )
     PersonaDTO inverseMapping(PersonaVO personaVO);
+
+
 }

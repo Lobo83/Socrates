@@ -15,59 +15,49 @@
 </style>
 <body>
 <jsp:include page="/WEB-INF/template/navbar.jsp"/>
-
-<form id="createUserForm" name="user" action="/user/create" method="post">
-
+<form id="createAulaForm" name="aula" action="/aula/crear" method="post">
+    <input type="hidden" name="id" value="${aula.id}"/>
     <div class="container">
-
         <div class="row">
+
             <div class="col-sm-2" style="width: 12%">
-                <c:out value="Usuario:"/>
+                <c:out value="Nombre:"/>
             </div>
             <div class="col-sm-2">
-                <input type="text" name="username"/>
-            </div>
-
-        </div>
-        <div class="row">
-            <div class="col-sm-2" style="width: 12%">
-                <c:out value="Contraseña: "/>
-            </div>
-            <div class="col-sm-2">
-                <input type="password" name="password"/>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-2" style="width: 12%">
-                <c:out value="Activo: "/><input type="checkbox" name="enabled" checked/>
+                <input type="text" name="nombre" value="${aula.nombre}"/>
             </div>
 
         </div>
         <div class="row">
-            <div class="col-sm-2">
-                <c:out value="Rol:"/><br/>
+
+            <div class="col-sm-2" style="width: 12%">
+                <c:out value="Descripcion:"/>
             </div>
+            <div class="col-sm-2">
+                <input type="text" name="descripcion" value="${aula.descripcion}"/>
+            </div>
+
         </div>
         <div class="row">
-            <div class="col-2" style="padding-left: 5%">
-                <fieldset>
-                    <c:forEach items="${['Admin','Alumno','Profesor']}" var="role">
-                        <c:out value="${role}: "/><input type="radio" value="${role}"
-                                                         name="roles"/><br/>
-                    </c:forEach>
-                </fieldset>
+
+            <div class="col-sm-2" style="width: 12%">
+                <c:out value="Capacidad:"/>
+            </div>
+            <div class="col-sm-2">
+                <input type="number" name="capacidad" value="${aula.capacidad}"/>
             </div>
 
         </div>
         <div class="row">
             <div class="col-4">
-                <input type="submit" value="Crear"/>
+                <input type="submit" value="Salvar"/>
             </div>
 
         </div>
     </div>
+    </div>
 </form>
-
 <jsp:include page="/WEB-INF/template/footer.jsp"/>
 </body>
 </html>
+

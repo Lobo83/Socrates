@@ -24,16 +24,19 @@ public class Clase {
     private String nombre;
     @Column(name = "DESCRIPCION", length = 500)
     private String descripcion;
+
+    @OneToMany(mappedBy = "clase")
+    private List<Sesion> sesiones;
+
     @ManyToOne
-    @JoinColumn(name = "ID_AULA", nullable = false)
-    private Aula aula;
-    @ManyToOne
-    @JoinColumn(name = "ID_MATERIA", nullable = false)
+    @JoinColumn(name = "ID_MATERIA")
     private Materia materia;
     @ManyToOne
     @JoinColumn(name = "ID_PROFESOR", nullable = false)
     private Profesor profesor;
     @ManyToMany(mappedBy = "clases")
     private List<Alumno> alumnos;
+
+
 
 }
