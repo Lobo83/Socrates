@@ -1,6 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://displaytag.sf.net" prefix="display" %>
 <html>
 <head>
     <jsp:include page="/WEB-INF/template/header.jsp"/>
