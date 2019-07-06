@@ -89,11 +89,7 @@
             <groupId>javax.servlet</groupId>
             <artifactId>jstl</artifactId>
         </dependency>
-        <dependency>
-            <groupId>displaytag</groupId>
-            <artifactId>displaytag</artifactId>
-            <version>1.2</version>
-        </dependency>
+        
 
         <dependency>
             <groupId>org.mapstruct</groupId>
