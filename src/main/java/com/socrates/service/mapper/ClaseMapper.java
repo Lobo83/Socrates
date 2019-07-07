@@ -10,7 +10,7 @@ import org.mapstruct.MappingTarget;
 import java.util.ArrayList;
 import java.util.List;
 
-@Mapper(componentModel = "spring", uses = {UserMapper.class,ProfesorMapper.class})
+@Mapper(componentModel = "spring", uses = {UserMapper.class,ProfesorMapper.class,MateriaMapper.class})
 public interface ClaseMapper extends AbstractMapper<ClaseVO, Clase> {
 
 
@@ -21,5 +21,11 @@ public interface ClaseMapper extends AbstractMapper<ClaseVO, Clase> {
             clase.getProfesor().setClases(new ArrayList<>());
         }
         clase.getProfesor().getClases().add(clase);
+
+        List<Clase> materiaClases=clase.getMateria().getClases();
+        if(materiaClases==null){
+            clase.getMateria().setClases(new ArrayList<>());
+        }
+        clase.getMateria().getClases().add(clase);
     }
 }

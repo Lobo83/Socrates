@@ -35,6 +35,8 @@
                             <li><a href="/aula/findAll">Listar Aulas</a></li>
                             <li><a href="/clase/cargar_formulario_vacio">Crear Clase</a></li>
                             <li><a href="/clase/findAll">Listar Clases</a></li>
+                            <li><a href="/materia/cargar_formulario_vacio">Crear Materia</a></li>
+                            <li><a href="/materia/findAll">Listar Materias</a></li>
 
                         </ul>
                     </li>

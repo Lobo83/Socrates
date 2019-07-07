@@ -21,32 +21,23 @@
         <thead>
         <tr>
             <th scope="col">Nombre</th>
-            <th scope="col">Descripcion</th>
-            <th scope="col">Profesor</th>
-            <th scope="col">Materia</th>
+            <th scope="col">Nivel</th>
             <th scope="col">Accion</th>
 
         </tr>
         </thead>
         <tbody>
-        <c:forEach var="clase" items="${clases}">
+        <c:forEach var="materia" items="${materias}">
             <tr>
                 <td scope="row">
-                    <c:out value="${clase.nombre}"/>
+                    <c:out value="${materia.nombre}"/>
+                </td>
+                <td scope="row">
+                    <c:out value="${materia.nivel}"/>
                 </td>
                 <td>
-                    <c:out value="${clase.descripcion}"/>
-                </td>
-
-                <td>
-                    <c:out value="${clase.profesor.nombre}"/> <c:out value="${clase.profesor.apellido1}"/> <c:out value="${clase.profesor.apellido2}"/>
-                </td>
-                <td>
-                    <c:out value="${clase.materia.nombre}"/>
-                </td>
-                <td>
-                    <a href="/clase/editar?id=${clase.id}">Editar</a>,
-                    <a href="/clase/borrar?id=${clase.id}">Eliminar</a>
+                    <a href="/materia/editar?id=${materia.id}">Editar</a>,
+                    <a href="/materia/borrar?id=${materia.id}">Eliminar</a>
                 </td>
             </tr>
         </c:forEach>

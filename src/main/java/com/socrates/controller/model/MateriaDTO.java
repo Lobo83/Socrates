@@ -1,5 +1,6 @@
 package com.socrates.controller.model;
 
+import com.socrates.service.NivelEnum;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -16,7 +17,7 @@ public class MateriaDTO {
     private Long id;
     private String nombre;
     private String descripcion;
-    private String nivel;
-    List<ClaseDTO> clases;
+    private List<ClaseDTO> clases;
+    private NivelEnum nivel;
 
 }

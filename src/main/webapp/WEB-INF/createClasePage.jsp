@@ -54,6 +54,20 @@
 
         </div>
         <div class="row">
+
+            <div class="col-sm-2" style="width: 12%">
+                <c:out value="Materia:"/>
+            </div>
+            <div class="col-sm-2">
+                <select name="idMateria">
+                    <c:forEach var="materia" items="${materias}">
+                        <option value="${materia.id}" ${materia.id == clase.materia.id ? 'selected="selected"' : ''}>${materia.nombre}</option>
+                    </c:forEach>
+                </select>
+            </div>
+
+        </div>
+        <div class="row">
             <div class="col-4">
                 <input type="submit" value="Salvar"/>
             </div>

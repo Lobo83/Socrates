@@ -1,12 +1,16 @@
 package com.socrates.controller;
 
 import com.socrates.controller.mapper.ClaseBusinessMapper;
+import com.socrates.controller.mapper.MateriaBusinessMapper;
 import com.socrates.controller.mapper.PersonaBusinessMapper;
 import com.socrates.controller.mapper.PersonaProfesorBusinessMapper;
 import com.socrates.controller.model.ClaseDTO;
+import com.socrates.controller.model.MateriaDTO;
 import com.socrates.controller.model.PersonaDTO;
 import com.socrates.service.service.ClaseService;
+import com.socrates.service.service.MateriaService;
 import com.socrates.service.service.ProfesorService;
+import com.socrates.service.vo.MateriaVO;
 import com.socrates.service.vo.PersonaVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -34,6 +38,10 @@ public class ClaseController {
     @Autowired
     private PersonaProfesorBusinessMapper personaProfesorBusinessMapper;
 
+    @Autowired
+    private MateriaService materiaService;
+    @Autowired
+    private MateriaBusinessMapper materiaBusinessMapper;
 
     /**
      * Crear aula model and view.
@@ -46,11 +54,15 @@ public class ClaseController {
         ModelAndView modelAndView = new ModelAndView("createClasePage");
         PersonaDTO persona =
             personaBusinessMapper.inverseMapping(profesorService.obtenerProfesor(claseDTO.getIdProfesor()));
+        MateriaDTO materia = materiaBusinessMapper.inverseMapping(materiaService.obtenerMateria(claseDTO.getIdMateria()));
         claseDTO.setProfesor(personaProfesorBusinessMapper.directMapping(persona));
+        claseDTO.setMateria(materia);
         claseDTO =
             claseBusinessMapper.inverseMapping(claseService.crearClase(claseBusinessMapper.directMapping(claseDTO)));
         modelAndView.addObject("clase", claseDTO);
         modelAndView.addObject("profesores", obtenerProfesores());
+        modelAndView.addObject("materias", obtenerMaterias());
+
         return modelAndView;
     }
 
@@ -64,6 +76,7 @@ public class ClaseController {
         ModelAndView modelAndView = new ModelAndView("createClasePage");
         //TODO Inicializar las sesiones disponibles y los materiales. Se necesitan consultas
         modelAndView.addObject("profesores", obtenerProfesores());
+        modelAndView.addObject("materias", obtenerMaterias());
         return modelAndView;
     }
 
@@ -85,6 +98,7 @@ public class ClaseController {
         ModelAndView modelAndView = new ModelAndView("createClasePage");
         modelAndView.addObject("clase", claseDTO);
         modelAndView.addObject("profesores", obtenerProfesores());
+        modelAndView.addObject("materias", obtenerMaterias());
         return modelAndView;
     }
 
@@ -97,5 +111,9 @@ public class ClaseController {
     private List<PersonaDTO> obtenerProfesores() {
         List<PersonaVO> profesores = profesorService.obtenerProfesores();
         return personaBusinessMapper.inverseMapping(profesores);
+    }
+    private List<MateriaDTO> obtenerMaterias() {
+        List<MateriaVO> materias = materiaService.obtenerMaterias();
+        return materiaBusinessMapper.inverseMapping(materias);
     }
 }

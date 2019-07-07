@@ -20,6 +20,7 @@ public class ClaseDTO {
     private MateriaDTO materia;
     private ProfesorDTO profesor;
     private Long idProfesor;
+    private Long idMateria;
     private List<AlumnoDTO> alumnos;
 
 }
