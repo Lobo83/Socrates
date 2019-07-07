@@ -36,8 +36,7 @@
             <div class="col-sm-2">
                 <fieldset>
                     <c:forEach items="${['Basico','Intermedio','Avanzado']}" var="niveles">
-                        <c:out value="${niveles}: "/><input type="radio" value="${nivel}"
-                                                                name="nivel"/><br/>
+                        <c:out value="${niveles}: "/><input type="radio" value="${niveles}" name="nivel" ${niveles == materia.nivel.toString() ? 'checked' : ''}/><br/>
                     </c:forEach>
                 </fieldset>
             </div>
