@@ -26,7 +26,7 @@ public class Materia {
     private String descripcion;
     @Column(name = "NIVEL", length = 10)
     private String nivel;
-    @OneToMany(mappedBy = "materia", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "materia", cascade = CascadeType.ALL)
 //    @OneToMany(mappedBy = "materia")
     List<Clase> clases;
 
