@@ -5,7 +5,6 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
-import java.time.LocalTime;
 
 @Entity
 @Table(name="SESION")
@@ -21,9 +20,9 @@ public class Sesion {
     @Column(name="DIA")
     private String dia;
     @Column(name="HORA_INICIO")
-    private LocalTime horaInicio;
+    private String horaInicio;
     @Column(name="HORA_FIN")
-    private LocalTime horaFin;
+    private String horaFin;
     @ManyToOne
     @JoinColumn(name = "ID_AULA", nullable = false)
     private Aula aula;

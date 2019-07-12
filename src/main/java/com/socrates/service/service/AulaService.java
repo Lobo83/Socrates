@@ -8,6 +8,8 @@ import java.util.List;
  * The interface Aula service.
  */
 public interface AulaService {
+
+
     /**
      * Crear aula aula vo.
      *

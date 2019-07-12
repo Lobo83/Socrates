@@ -37,6 +37,7 @@
                             <li><a href="/clase/findAll">Listar Clases</a></li>
                             <li><a href="/materia/cargar_formulario_vacio">Crear Materia</a></li>
                             <li><a href="/materia/findAll">Listar Materias</a></li>
+                            <li><a href="/sesion/cargar_formulario_vacio">Crear Sesion</a></li>
 
                         </ul>
                     </li>

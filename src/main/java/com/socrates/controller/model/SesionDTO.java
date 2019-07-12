@@ -4,17 +4,17 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import java.time.LocalTime;
-
 @Getter
 @Setter
 @ToString
 public class SesionDTO {
     private Long id;
     private String dia;
-    private LocalTime horaInicio;
-    private LocalTime horaFin;
+    private String horaInicio;
+    private String horaFin;
+    private Long idAula;
     private AulaDTO aula;
+    private Long idClase;
     private ClaseDTO clase;
 
 }

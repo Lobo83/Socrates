@@ -36,7 +36,7 @@ public class MainSecurityConfig extends WebSecurityConfigurerAdapter {
             authorizeRequests().
             antMatchers(" /static/**").
             permitAll().
-            antMatchers("/user/**","/aula/**","/clase/**","/materia/**").hasRole("ADMIN").and().logout().permitAll();
+            antMatchers("/user/**","/aula/**","/clase/**","/materia/**","/sesion/**").hasRole("ADMIN").and().logout().permitAll();
         http.csrf().disable();
     }
 
