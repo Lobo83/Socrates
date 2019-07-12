@@ -5,14 +5,18 @@ import com.socrates.persistence.model.Clase;
 import com.socrates.service.vo.ClaseVO;
 import org.mapstruct.AfterMapping;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Mapper(componentModel = "spring", uses = {UserMapper.class,ProfesorMapper.class,MateriaMapper.class})
+@Mapper(componentModel = "spring", uses = {UserMapper.class,ProfesorMapper.class,MateriaMapper.class,SesionMapper.class})
 public interface ClaseMapper extends AbstractMapper<ClaseVO, Clase> {
 
+    @Override
+    @Mapping(target = "sesiones", source = "sesiones", ignore = true)
+    ClaseVO inverseMapping(Clase clase);
 
     @AfterMapping
     default void completarCadenaJpa(ClaseVO claseVO, @MappingTarget Clase clase){

@@ -19,7 +19,6 @@
             var selectHora = document.getElementById(idSelectHoraOrigen);
             var valorHora = selectHora.options[selectHora.selectedIndex].value;
             document.getElementById(idCampoObjetivo).value=valorHora+":"+valorMinuto;
-            alert(valorHora+":"+valorMinuto);
         }
 
     </script>

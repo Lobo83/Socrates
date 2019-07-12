@@ -13,6 +13,11 @@ import java.util.List;
 @Mapper(componentModel = "spring", uses = UserMapper.class)
 public interface SesionMapper extends AbstractMapper<SesionVO, Sesion> {
 
+//    @Override
+//    @Mapping(target = "clase", source = "clase", ignore = true)
+//    @Mapping(target = "aula", source = "aula", ignore = true)
+//    SesionVO inverseMapping(Sesion sesion);
+
     @AfterMapping
     default void completarCadenaJpa(SesionVO sesionVO, @MappingTarget Sesion sesion){
 
