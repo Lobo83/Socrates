@@ -10,6 +10,20 @@
           href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+
+        function setTimeValue(idCampoObjetivo, idSelectHoraOrigen,idSelectMinutoOrigen) {
+            var selectMinuto = document.getElementById(idSelectMinutoOrigen);
+            var valorMinuto = selectMinuto.options[selectMinuto.selectedIndex].value;
+            var selectHora = document.getElementById(idSelectHoraOrigen);
+            var valorHora = selectHora.options[selectHora.selectedIndex].value;
+            document.getElementById(idCampoObjetivo).value=valorHora+":"+valorMinuto;
+            alert(valorHora+":"+valorMinuto);
+        }
+
+    </script>
+
 </head>
 <style>
 
@@ -39,19 +53,17 @@
                 <c:out value="Hora Inicio:"/>
             </div>
             <div class="col-sm-2">
-                <select>
-                    <c:set var="horaInicioPartes" value="${fn:split(sesion.horaInicio, ':')}"/>
+                <select id="selectHoraInicio" onchange="setTimeValue('horaInicio','selectHoraInicio','selectMinutoInicio');" >
                     <c:forEach begin="8" end="22" var="valHoraInicio">
                         <option value="${valHoraInicio}" ${valHoraInicio == horaInicioPartes[0]  ? 'selected="selected"' : ''} >${valHoraInicio}</option>
                     </c:forEach>
                 </select>:
-                <select>
+                <select id="selectMinutoInicio" onchange="setTimeValue('horaInicio','selectHoraInicio','selectMinutoInicio');" >
                     <c:forEach items="${['00','15','30','45']}" var="valMinutoInicio">
                         <option value="${valMinutoInicio}" ${valMinutoInicio == horaInicioPartes[1]  ? 'selected="selected"' : ''} >${valMinutoInicio}</option>
                     </c:forEach>
                 </select>
-                <input type="hidden" value="${valHoraInicio}:${valMinutoInicio}"
-                       name="horaInicio"/>
+                <input type="hidden" id="horaInicio" name="horaInicio"/>
             </div>
 
         </div>
@@ -60,19 +72,20 @@
                 <c:out value="Hora Fin:"/>
             </div>
             <div class="col-sm-2">
-                <select >
+                <select id="selectHoraFin" onchange="setTimeValue('horaFin','selectHoraFin','selectMinutoFin');">
                     <c:set var="horaFinPartes" value="${fn:split(sesion.horaFin, ':')}"/>
+
                     <c:forEach begin="8" end="22" var="valHoraFin">
                         <option value="${valHoraFin}" ${valHoraFin == horaFinPartes[0]  ? 'selected="selected"' : ''} >${valHoraFin}</option>
+                        <c:set var = "variableHoraFin" scope = "request" value = "${valHoraFin}"/>
                     </c:forEach>
                 </select>:
-                <select>
+                <select id="selectMinutoFin" onchange="setTimeValue('horaFin','selectHoraFin','selectMinutoFin');">
                     <c:forEach items="${['00','15','30','45']}" var="valMinutoFin">
                         <option value="${valMinutoFin}" ${valMinutoFin == horaFinPartes[1]  ? 'selected="selected"' : ''} >${valMinutoFin}</option>
                     </c:forEach>
                 </select>
-                <input type="hidden" value="${valHoraFin}:${valMinutoFin}"
-                       name="horaFin"/>
+                <input type="hidden"  id="horaFin" name="horaFin"/>
             </div>
 
         </div>
