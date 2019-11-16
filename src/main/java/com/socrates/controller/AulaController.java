@@ -46,7 +46,13 @@ public class AulaController {
 
         return modelAndView;
     }
-
+    @GetMapping("/editar")
+    public ModelAndView editarAula(@RequestParam("id")Long id){
+        AulaDTO aulaDTO = aulaBusinessMapper.inverseMapping(aulaService.obtenerAula(id));
+        ModelAndView modelAndView=new ModelAndView("createAulaPage");
+        modelAndView.addObject("aula",aulaDTO);
+        return modelAndView;
+    }
     /**
      * Mostrar aulas model and view.
      *
@@ -59,13 +65,7 @@ public class AulaController {
         return modelAndView;
     }
 
-    @GetMapping("/editar")
-    public ModelAndView editarAula(@RequestParam("id")Long id){
-        AulaDTO aulaDTO = aulaBusinessMapper.inverseMapping(aulaService.obtenerAula(id));
-        ModelAndView modelAndView=new ModelAndView("createAulaPage");
-        modelAndView.addObject("aula",aulaDTO);
-        return modelAndView;
-    }
+
 
     @GetMapping("/borrar")
     public ModelAndView borrarAula(@RequestParam("id")Long id){
